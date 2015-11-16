@@ -1,0 +1,25 @@
+.panel.panel-default
+	.panel-heading Mitarbeiter
+	.panel-body
+		%p Platzhalter Suchfeld
+	%table.table
+		%thead
+			%tr
+				%th ID
+				%th Vorname
+				%th Nachname
+				%th Telefonnummer
+				%th E-Mail
+				%th Standort
+				%th Funktion
+				%th Abteilungsnummer
+		- @employees.each do |employee|
+			%tr
+				%td= employee.id
+				%td= employee.firstname
+				%td= employee.name
+				%td= employee.phone
+				%td= employee.email
+				%td= employee.location
+				%td= employee.function
+				%td= employee.department.name
