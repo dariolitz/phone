@@ -43,10 +43,15 @@ gem 'autoprefixer-rails'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
-  gem 'debugger'
-
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'erb2haml'
   gem 'html2haml'
+  gem 'meta_request'
+  gem 'letter_opener'
+  gem 'annotate', github: 'ctran/annotate_models'
+  gem "faker"
+  gem "populator"
 end
 
 group :development do

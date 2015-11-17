@@ -1,25 +1,28 @@
 .panel.panel-default
 	.panel-heading Mitarbeiter
 	.panel-body
-		%p Platzhalter Suchfeld
+		%label{:for => "search"}
+			Suche:
+			%input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}
+			%input.btn.btn-default{:type => "submit", :value => "Suche"}
 	%table.table
 		%thead
 			%tr
-				%th ID
-				%th Vorname
-				%th Nachname
-				%th Telefonnummer
-				%th E-Mail
-				%th Standort
-				%th Funktion
-				%th Abteilungsnummer
+				%th= sort_link(@q, :id, 'ID', default_order: :asc)
+				%th= sort_link(@q, :firstname, 'Vorname')
+				%th= sort_link(@q, :name, 'Nachname')
+				%th= sort_link(@q, :phone, 'Telefonnummer')
+				%th= sort_link(@q, :email, 'E-Mail')
+				%th= sort_link(@q, :location, 'Standort')
+				%th= sort_link(@q, :department_id, 'Abteilung')
+				%th= sort_link(@q, :function, 'Funktion')
 		- @employees.each do |employee|
 			%tr
-				%td= employee.id
+				%td= link_to employee.id, employee_path(employee)
 				%td= employee.firstname
 				%td= employee.name
 				%td= employee.phone
 				%td= employee.email
 				%td= employee.location
+				%td= link_to employee.membership.department.name, department_path(employee.membership.department)
 				%td= employee.function
-				%td= employee.department.name

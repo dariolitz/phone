@@ -1,0 +1,11 @@
+.panel.panel-default
+	.panel-heading Abteilung
+	%table.table
+		%thead
+			%tr
+				%th ID
+				%th Name
+		- @departments.each do |department|
+			%tr
+				%td= department.id
+				%td= department.name
