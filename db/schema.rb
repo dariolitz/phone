@@ -25,16 +25,16 @@ ActiveRecord::Schema.define(version: 20151117144212) do
     t.string   "phone"
     t.string   "email"
     t.string   "location"
-    t.string   "function"
-    t.integer  "department_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "memberships", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.integer  "department_id"
     t.string   "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

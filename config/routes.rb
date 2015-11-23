@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'departments' => 'department#index'
+  get 'departments' => 'departments#index'
 
   get 'departments/new'
 

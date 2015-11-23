@@ -14,8 +14,7 @@
 				%th= sort_link(@q, :phone, 'Telefonnummer')
 				%th= sort_link(@q, :email, 'E-Mail')
 				%th= sort_link(@q, :location, 'Standort')
-				%th= sort_link(@q, :department_id, 'Abteilung')
-				%th= sort_link(@q, :function, 'Funktion')
+				%th= "Funktion"
 		- @employees.each do |employee|
 			%tr
 				%td= link_to employee.id, employee_path(employee)
@@ -24,5 +23,8 @@
 				%td= employee.phone
 				%td= employee.email
 				%td= employee.location
-				%td= link_to employee.membership.department.name, department_path(employee.membership.department)
-				%td= employee.function
+				%td 
+					- employee.memberships.each do |membership|
+						=link_to membership.department.name, department_path(membership.department) 
+						= "-"
+						=membership.role

@@ -19,7 +19,10 @@
 	= @employee.location
 %p
 	%b Funktion:
-	= @employee.function
+	= @employee.memberships.first.role
 %p
 	%b Abteilung:
-	= @employee.department.name
+	- @employee.memberships.each do |membership|
+		=link_to membership.department.name, department_path(membership.department) 
+		= "-"
+		=membership.role

@@ -6,8 +6,6 @@ class CreateEmployees < ActiveRecord::Migration
       t.string :phone
       t.string :email
       t.string :location
-      t.string :membership
-      t.integer :department_id
 
       t.timestamps null: false
     end

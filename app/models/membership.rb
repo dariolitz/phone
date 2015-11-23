@@ -1,4 +1,4 @@
 class Membership < ActiveRecord::Base
-	has_one :employee
-	has_one :department
+	belongs_to :employee
+	belongs_to :department
 end
