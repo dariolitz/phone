@@ -61,6 +61,7 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    bootstrap_form (2.3.0)
     builder (3.2.2)
     callsite (0.0.11)
     coderay (1.1.0)
@@ -78,6 +79,9 @@ GEM
     execjs (2.6.0)
     faker (1.5.0)
       i18n (~> 0.5)
+    foundation-rails (5.4.5.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     git-version-bump (0.15.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -214,9 +218,11 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-kaminari-views
   bootstrap-sass
+  bootstrap_form
   coffee-rails (~> 4.1.0)
   erb2haml
   faker
+  foundation-rails (= 5.4.5)
   haml-rails
   html2haml
   jbuilder (~> 2.0)

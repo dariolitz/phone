@@ -1,2 +1,8 @@
-%h1 Department#edit
-%p Find me in app/views/department/edit.html.haml
+%h1 Abteilung bearbeiten
+= bootstrap_form_for(@department) do |f|
+	%p
+		= f.text_field :name, placeholder: "IT"
+	%p
+		= f.submit
+	= link_to departments_path, class: "btn btn-default" do
+		Back to index

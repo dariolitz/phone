@@ -3,8 +3,10 @@
 	.panel-body
 		%label{:for => "search"}
 			Suche:
-			%input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}
+			%input#exampleInputPassword1.form-control{:placeholder => "Suchen", :type => "text"}
 			%input.btn.btn-default{:type => "submit", :value => "Suche"}
+				= link_to new_employee_path, class: "btn btn-default" do
+					Create new Employee
 	%table.table
 		%thead
 			%tr
@@ -15,6 +17,7 @@
 				%th= sort_link(@q, :email, 'E-Mail')
 				%th= sort_link(@q, :location, 'Standort')
 				%th= "Funktion"
+				%th= ""
 		- @employees.each do |employee|
 			%tr
 				%td= link_to employee.id, employee_path(employee)
@@ -25,6 +28,12 @@
 				%td= employee.location
 				%td 
 					- employee.memberships.each do |membership|
-						=link_to membership.department.name, department_path(membership.department) 
-						= "-"
-						=membership.role
+						%p
+							=link_to membership.department.name, department_path(membership.department) 
+							= "-"
+							=membership.role
+				%td
+					=link_to edit_employee_path(employee), class: "btn btn-default" do
+						Edit
+					=link_to employee, class: "btn btn-default", confirm: 'Wollen Sie diesen Datensatz wirklich löschen?', method: :delete do
+						Delete				

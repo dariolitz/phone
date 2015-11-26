@@ -18,11 +18,12 @@
 	%b Standort:
 	= @employee.location
 %p
-	%b Funktion:
-	= @employee.memberships.first.role
-%p
-	%b Abteilung:
+	%b 
+		Funktion:
 	- @employee.memberships.each do |membership|
-		=link_to membership.department.name, department_path(membership.department) 
-		= "-"
-		=membership.role
+		%p
+			=link_to membership.department.name, department_path(membership.department) 
+			= "-"
+			=membership.role
+= link_to employees_path, class: "btn btn-default" do
+	Back to index

@@ -1,2 +1,16 @@
 %h1 Bearbeiten
-%p Find me in app/views/employees/edit.html.haml
+= bootstrap_form_for(@employee) do |f|
+	%p
+		= f.text_field :firstname, placeholder: "Max"
+	%p
+		= f.text_field :name, placeholder: "Mustermann"
+	%p
+		= f.text_field :phone, placeholder: "123456789"
+	%p
+		= f.text_field :email, placeholder: "max.mustermann@example.com"
+	%p
+		= f.text_field :location, placeholder: "Musterland"
+	%p
+		= f.submit
+	= link_to employees_path, class: "btn btn-default" do
+		Back to index

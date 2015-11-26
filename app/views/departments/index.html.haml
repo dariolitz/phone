@@ -9,3 +9,11 @@
 			%tr
 				%td= department.id
 				%td= department.name
+				%td
+					=link_to edit_department_path(department), class: "btn btn-default" do
+						Edit
+					=link_to department, class: "btn btn-default", confirm: 'Wollen Sie diesen Datensatz wirklich löschen?', method: :delete do
+						Delete				
+
+= link_to new_department_path, class: "btn btn-default" do
+	Create new Department

@@ -31,6 +31,8 @@ gem 'bootstrap-sass'
 gem 'bootstrap-kaminari-views'
 gem 'rb-readline'
 gem 'autoprefixer-rails'
+gem 'bootstrap_form'
+gem 'foundation-rails', '5.4.5'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,0 +1,14 @@
+%h1 Neue Funktion
+= bootstrap_form_for(@membership) do |f|
+	%p
+		%select{:employee_id => "employee_id"}
+			= @employees.each do |employee|
+				%option{:value => employee.id}= employee.name	
+	%p
+		%select{:department_id => "department_id"}
+			= @departments.each do |department|
+				%option{:value => department.id}= department.name
+	%p
+		= f.text_field :role, placeholder: "Head"
+	%p
+		= f.submit
