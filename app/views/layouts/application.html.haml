@@ -7,10 +7,16 @@
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true
 		= csrf_meta_tags
 	%body
-		.top-menu
-			%h2
-				%a{:href => "/employees/"} Mitarbeiter
-				%a{:href => "/departments/"} Abteilungen
+		.container-fluid
+			%h2 Telefonverzeichnis
+		.subnav
+			Service contact: +49 (0) 7531 97 69 48 88 | techsupport@lifecodexx.com		
 		.yield
+			%ul.nav.nav-tabs
+				%li.active{:role => "presentation", :class => "active"}
+					%a{:href => "/employees/"} Mitarbeiter
+				%li.active{:role => "presentation"}
+					%a{:href => "/departments/"} Abteilungen 
 			= yield
-		.bottom-menu
+		.container
+			hi

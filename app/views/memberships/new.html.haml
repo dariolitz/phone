@@ -3,7 +3,7 @@
 	%p
 		%select{:employee_id => "employee_id"}
 			= @employees.each do |employee|
-				%option{:value => employee.id}= employee.name	
+				%option{:value => employee.id}= employee.name
 	%p
 		%select{:department_id => "department_id"}
 			= @departments.each do |department|

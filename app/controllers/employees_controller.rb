@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
 	def index
 		@q = Employee.ransack(params[:q])
-  	@employees = @q.result(distrinct: true)
+  	@employees = @q.result(distinct: true).page(params[:page]).per(15)
 	end
 
 	def new
@@ -19,6 +19,18 @@ class EmployeesController < ApplicationController
 		else
 			render "new"
 		end
+	  respond_to do |format|
+      if @user.save
+        # Tell the UserMailer to send a welcome email after save
+        UserMailer.welcome_email(@user).deliver_later
+ 
+        format.html { redirect_to(@user, notice: 'User was successfully created.') }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+	  end
 	end
 
 	def edit

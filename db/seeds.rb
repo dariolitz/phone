@@ -12,6 +12,7 @@ employee2 = Employee.create(firstname: "Christoph", name: "Werner", phone: "0123
 membership = Membership.create(employee_id: employee.id, department_id: department.id, role: "Head")
 membership2 = Membership.create(employee_id: employee2.id, department_id: department2.id, role: "Apprentice")
 membership3 = Membership.create(employee_id: employee.id, department_id: department2.id, role: "Head")
+membership4 = Membership.create(employee_id: 7, department_id: 2, role: "Head")
 Employee.populate(300) do |employee|
 	first_name = Faker::Name.first_name
   employee.firstname = first_name
