@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'memberships/new'
+  get 'memberships/new', as: "new_membership"
 
   resources :memberships
 

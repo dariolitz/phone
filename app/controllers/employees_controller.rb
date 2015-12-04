@@ -6,6 +6,7 @@ class EmployeesController < ApplicationController
 
 	def new
 		@employee = Employee.new
+		@membership = Membership.new
 	end
 
 	def employee_params

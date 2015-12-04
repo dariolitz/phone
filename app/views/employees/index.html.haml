@@ -6,6 +6,8 @@
 			%input.btn.btn-default{:type => "submit", :value => "Suche"}
 			=link_to new_employee_path, class: "btn btn-default" do
 				Neuen Mitarbeiter erstellen
+			= link_to new_membership_path, class: "btn btn-default" do
+				Neue Funktion erstellen
 	.panel-body
 	%table.table
 		%thead
@@ -34,9 +36,9 @@
 							=membership.role
 				%td
 					=link_to edit_employee_path(employee), class: "btn btn-default" do
-						Edit
-					=link_to employee, class: "btn btn-default", :confirm => "Wollen Sie diesen Datensatz wirklich löschen?", method: :delete do
-						Delete
+						Bearbeiten
+					=link_to employee, class: "btn btn-default", data: {confirm: "Wollen Sie diesen Datensatz wirklich löschen?"}, method: :delete do
+						Löschen
 .pagination-center
 	= paginate @employees, :theme => 'twitter-bootstrap-3'
 	.pagination-info

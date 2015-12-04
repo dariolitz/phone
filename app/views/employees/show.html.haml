@@ -21,9 +21,11 @@
 	%b 
 		Funktion:
 	- @employee.memberships.each do |membership|
+		=link_to membership.department.name, department_path(membership.department) 
+		= "-"
+		=membership.role
 		%p
-			=link_to membership.department.name, department_path(membership.department) 
-			= "-"
-			=membership.role
+= link_to new_membership_path, class: "btn btn-default" do
+	Neue Funktion
 = link_to employees_path, class: "btn btn-default" do
-	Back to index
+	Zurück zum Index
