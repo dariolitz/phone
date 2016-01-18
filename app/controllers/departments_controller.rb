@@ -26,7 +26,16 @@ class DepartmentsController < ApplicationController
 	end
 
 	def show
+		@department_employees = []
 	 	@department = Department.find(params[:id])
+	 	@employees = Employee.all
+	 	@employees.each do |employee|
+	 		employee.memberships.each do |membership|
+		 		if membership.department_id == @department.id
+		 			@department_employees << employee
+		 		end
+		 	end
+	 	end
 	end
 
 	def update

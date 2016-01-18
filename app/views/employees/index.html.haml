@@ -6,8 +6,6 @@
 			%input.btn.btn-default{:type => "submit", :value => "Suche"}
 			=link_to new_employee_path, class: "btn btn-default" do
 				Neuen Mitarbeiter erstellen
-			= link_to new_membership_path, class: "btn btn-default" do
-				Neue Funktion erstellen
 	.panel-body
 	%table.table
 		%thead
@@ -19,27 +17,10 @@
 				%th= sort_link(@q, :email, 'E-Mail')
 				%th= sort_link(@q, :location, 'Standort')
 				%th= "Funktion"
-				%th= ""
-		- @employees.each do |employee|
-			= content_tag_for(:tr, employee) do
-				%td= link_to employee.id, employee_path(employee)
-				%td= employee.firstname
-				%td= employee.name
-				%td= employee.phone
-				%td= employee.email
-				%td= employee.location
-				%td 
-					- employee.memberships.each do |membership|
-						%p
-							=link_to membership.department.name, department_path(membership.department) 
-							= "-"
-							=membership.role
-				%td
-					=link_to edit_employee_path(employee), class: "btn btn-default" do
-						Bearbeiten
-					=link_to employee, class: "btn btn-default", data: {confirm: "Wollen Sie diesen Datensatz wirklich löschen?"}, method: :delete, remote: true do
-						Löschen
-.pagination-center
+				%th
+		%tbody#employees
+			= render @employees
+#pagination.pagination-center
 	= paginate @employees, :theme => 'twitter-bootstrap-3', :remote => true
-	.pagination-info
-		= page_entries_info @employees
+	#counter.pagination-info
+		= page_entries_info @employees, :remote => true

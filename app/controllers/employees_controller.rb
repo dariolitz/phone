@@ -17,21 +17,10 @@ class EmployeesController < ApplicationController
 	def create
 		@employee = Employee.new(employee_params)
 		if @employee.save
+			EmployeeMailer.welcome_email(@employee).deliver_now # needs param
 			redirect_to employees_path
 		else
 			render "new"
-		end
-		respond_to do |format|
-			if @user.save
-				# Tell the UserMailer to send a welcome email after save
-				UserMailer.welcome_email(@user).deliver_later
-
-				format.html { redirect_to(@user, notice: 'User was successfully created.') }
-				format.json { render json: @user, status: :created, location: @user }
-			else
-				format.html { render action: 'new' }
-				format.json { render json: @user.errors, status: :unprocessable_entity }
-			end
 		end
 	end
 
@@ -56,10 +45,10 @@ class EmployeesController < ApplicationController
 		@employee = Employee.find(params[:id])
 		@employee.destroy
 
-		respond_to do |format|
-			format.html { redirect_to employees_url }
-			format.json { head :ok }
-			format.js
+    respond_to do |format|
+      format.html { redirect_to employees_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
 		end
 	end
 	

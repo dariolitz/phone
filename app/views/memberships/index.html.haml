@@ -1,0 +1,24 @@
+.panel.panel-default
+	.panel-heading
+		Funktionen
+		= link_to new_membership_path, class: "btn btn-default" do
+			Neue Funktion erstellen
+	%table.table
+		%thead
+			%tr
+				%th Mitarbeiter
+				%th Abteilung
+				%th Funktion
+				%th
+		- @memberships.each do |membership|
+			%tr
+				%td
+					= membership.employee.firstname 
+					= membership.employee.name
+				%td= membership.department.name
+				%td= membership.role
+				%td
+					=link_to edit_membership_path(membership), class: "btn btn-default" do
+						Bearbeiten
+					=link_to delete_membership_path(membership), class: "btn btn-default", data: {confirm: "Wollen Sie diesen Datensatz wirklich löschen?"}, method: :delete do
+						Löschen

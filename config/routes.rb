@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
+
+	get 'memberships' => 'memberships#index'
+
+	delete 'memberships/:id' => 'memberships#destroy', as: "delete_membership"
+
   get 'memberships/new', as: "new_membership"
 
-  resources :memberships
+  # resources :memberships
 
-  post 'memberships/:id' => 'memberships#create'
+  post 'memberships' => 'memberships#create'
+
+  get 'memberships/:id/edit' => 'memberships#edit', as: "edit_membership"
+
+	patch '/memberships/:id'	=> 'memberships#update'
 
 	get 'departments' => 'departments#index'
 

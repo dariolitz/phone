@@ -1,19 +1,20 @@
 .panel.panel-default
-	.panel-heading Abteilung
+	.panel-heading
+		Abteilung
+		= link_to new_department_path, class: "btn btn-default" do
+			Neue Abteilung erstellen
 	%table.table
 		%thead
 			%tr
 				%th ID
 				%th Name
+				%th
 		- @departments.each do |department|
 			%tr
-				%td= department.id
+				%td= link_to department.id, department_path(department)
 				%td= department.name
 				%td
 					=link_to edit_department_path(department), class: "btn btn-default" do
 						Bearbeiten
 					=link_to department, class: "btn btn-default", confirm: 'Wollen Sie diesen Datensatz wirklich löschen?', method: :delete do
-						Löschen				
-
-= link_to new_department_path, class: "btn btn-default" do
-	Neue Abteilung erstellen
+						Löschen

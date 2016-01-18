@@ -6,17 +6,26 @@
 		= stylesheet_link_tag	'application', media: 'all', 'data-turbolinks-track' => true
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true
 		= csrf_meta_tags
+		= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'
+		= javascript_include_tag 'rails.js'
 	%body
 		.container-fluid
 			%h2 Telefonverzeichnis
+			.dropdown
+				%button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+					Navigation
+					%span.caret
+				%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+					%li
+						%a{:href => "/employees/"} Mitarbeiter
+					%li
+						%a{:href => "/departments/"} Abteilungen
+					%li.divider{:role => "separator"}
+					%li
+						%a{:href => "/memberships/"} Funktionen
 		.subnav
 			Service contact: +49 (0) 7531 97 69 48 88 | techsupport@lifecodexx.com
 		.yield
-			%ul.nav.nav-tabs
-				%li.active{:role => "presentation", :class => "active"}
-					%a{:href => "/employees/"} Mitarbeiter
-				%li.active{:role => "presentation"}
-					%a{:href => "/departments/"} Abteilungen 
 			= yield
 		.container
 			hi

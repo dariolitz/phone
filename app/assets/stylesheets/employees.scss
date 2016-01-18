@@ -16,11 +16,20 @@
 }
 
 .table {
-	table-layout:fixed;
+	table-layout: fixed;
 }
 
 .table td {
 	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#edit {
+	overflow: auto;
+}
+
+.table th {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }

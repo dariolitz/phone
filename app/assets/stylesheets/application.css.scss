@@ -34,19 +34,21 @@
 	padding-top: 10px;
 	color: #fff;
 	font-size: 18px;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .subnav {
-		top: 0px;
-		height: 30px;
-		z-index: 1020;
-		background-color: #D5EDFA;
-		border-bottom: 1px solid #E1E1E1;
-		padding: 4px 15px 0px 0px;
-		color: #005C95;
-		text-align: right;
+	top: 0px;
+	height: 30px;
+	z-index: 1020;
+	background-color: #D5EDFA;
+	border-bottom: 1px solid #E1E1E1;
+	padding: 4px 15px 0px 0px;
+	color: #005C95;
+	text-align: right;
 }
-.yield{
+.yield {
 	padding: 100px;
 	top: 0px;
 	position: relative;
@@ -54,7 +56,7 @@
 	margin-bottom: 38px;
 }
 
-.container{
+.container {
 	height: 38px;
 	background-color: #005C95;
 	text-align: center;
@@ -64,6 +66,17 @@
 	width: 100%;
 }
 
-.nav-tabs active{
+.nav-tabs active {
 	background: #555;
+}
+
+.dropdown {
+	vertical-align: middle;
+	float: right;
+	padding-top: 23px;
+	padding-bottom: 23px;
+}
+
+h2 {
+	float: left;
 }
