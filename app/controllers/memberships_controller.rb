@@ -22,7 +22,7 @@ class MembershipsController < ApplicationController
 	def create
 		@membership = Membership.new(membership_params)
 		if @membership.save
-			redirect_to departments_path
+			redirect_to memberships_path
 		else
 			render "new"
 		end

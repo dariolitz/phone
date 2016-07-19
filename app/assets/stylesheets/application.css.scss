@@ -14,7 +14,7 @@
  *= require_self
  *= require rails_bootstrap_forms
  */
- 
+
 @import "bootstrap-sprockets";
 
 @import "bootstrap";
@@ -36,6 +36,7 @@
 	font-size: 18px;
 	margin-left: 0;
 	margin-right: 0;
+	text-shadow: 3px 3px 1px #000000;
 }
 
 .subnav {
@@ -71,10 +72,8 @@
 }
 
 .dropdown {
-	vertical-align: middle;
 	float: right;
 	padding-top: 23px;
-	padding-bottom: 23px;
 }
 
 h2 {

@@ -9,7 +9,7 @@
 	Zurück zum Index
 
 .panel.panel-default
-	.panel-heading 
+	.panel-heading
 		Mitarbeiter dieser Abteilung
 		%button.btn.btn-default{:type => "button", :id => "slide"} Ausklappen
 	#hidden.panel-body
@@ -34,6 +34,6 @@
 						%td
 							- employee.memberships.each do |membership|
 								%p
-									=link_to membership.department.name, department_path(membership.department) 
+									=link_to membership.department.name, department_path(membership.department)
 									= "-"
 									=membership.role

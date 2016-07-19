@@ -1,6 +1,6 @@
 %h1 Neue Funktion
 = bootstrap_form_for(@membership) do |f|
-	= select(:membership, :employee_id, Employee.all.collect{|e| [ e.name, e.id ] })
+	= select(:membership, :employee_id, Employee.all.collect{|e| ["#{e.firstname} " + e.name, e.id ] })
 	= select(:membership, :department_id, Department.all.collect{|d| [ d.name, d.id ] })
 	%p
 		= f.text_field :role, placeholder: "Head"

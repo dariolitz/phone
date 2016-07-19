@@ -1,3 +1,4 @@
+- content_for :title, "Mitarbeiter"
 .panel.panel-default
 	.panel-heading 
 		Mitarbeiter
@@ -22,5 +23,5 @@
 			= render @employees
 #pagination.pagination-center
 	= paginate @employees, :theme => 'twitter-bootstrap-3', :remote => true
-	#counter.pagination-info
-		= page_entries_info @employees, :remote => true
+	/ #counter.pagination-info
+	/ 	= page_entries_info @employees, :remote => true

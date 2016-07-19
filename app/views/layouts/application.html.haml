@@ -2,12 +2,14 @@
 %html
 	%head
 		%meta{:content => "text/html; charset=US-ASCII", "http-equiv" => "Content-Type"}/
-		%title Phone
+		%title
+			Phone - 
+			=yield(:title)
+		= favicon_link_tag 'phone.ico'
 		= stylesheet_link_tag	'application', media: 'all', 'data-turbolinks-track' => true
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true
 		= csrf_meta_tags
 		= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'
-		= javascript_include_tag 'rails.js'
 	%body
 		.container-fluid
 			%h2 Telefonverzeichnis
@@ -15,7 +17,7 @@
 				%button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
 					Navigation
 					%span.caret
-				%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+				%ul.dropdown-menu.dropdown-menu-right{"aria-labelledby" => "dropdownMenu1"}
 					%li
 						%a{:href => "/employees/"} Mitarbeiter
 					%li
@@ -28,4 +30,4 @@
 		.yield
 			= yield
 		.container
-			hi
+			footer

@@ -15,9 +15,9 @@ membership3 = Membership.create(employee_id: employee.id, department_id: departm
 membership4 = Membership.create(employee_id: 7, department_id: 2, role: "Head")
 Employee.populate(300) do |employee|
 	first_name = Faker::Name.first_name
-  employee.firstname = first_name
-  employee.name = Faker::Name.last_name
-  employee.phone = Faker::PhoneNumber.phone_number
-  employee.email = Faker::Internet.email(first_name)
-  employee.location = Faker::Address.country
+	employee.firstname = first_name
+	employee.name = Faker::Name.last_name
+	employee.phone = Faker::PhoneNumber.phone_number
+	employee.email = Faker::Internet.email(first_name)
+	employee.location = Faker::Address.country
 end
