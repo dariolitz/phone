@@ -1,27 +1,33 @@
 - content_for :title, "Mitarbeiter"
 .panel.panel-default
-	.panel-heading 
-		Mitarbeiter
-		= search_form_for @q do |f|
-			= f.search_field :id_or_name_or_firstname_or_email_or_phone_or_location_cont
-			%input.btn.btn-default{:type => "submit", :value => "Suche"}
-			=link_to new_employee_path, class: "btn btn-default" do
-				Neuen Mitarbeiter erstellen
-	.panel-body
-	%table.table
-		%thead
-			%tr
-				%th= sort_link(@q, :id, 'ID', default_order: :asc)
-				%th= sort_link(@q, :firstname, 'Vorname')
-				%th= sort_link(@q, :name, 'Nachname')
-				%th= sort_link(@q, :phone, 'Telefonnummer')
-				%th= sort_link(@q, :email, 'E-Mail')
-				%th= sort_link(@q, :location, 'Standort')
-				%th= "Funktion"
-				%th
-		%tbody#employees
-			= render @employees
+  .panel-heading
+    .row
+      .col-md-2
+        %label Mitarbeiter
+      = search_form_for @q, :remote=>'true', url: employees_path, :method=> :get do |f|
+        .col-md-2
+          .input-group
+            = f.search_field :id_or_name_or_firstname_or_email_or_phone_or_location_cont, class: "form-control"
+            %span.input-group-btn
+              %button.btn.btn-default{:type => "submit"} Suchen
+        .col-md-2
+          =link_to new_employee_path, class: "btn btn-default" do
+            Neuen Mitarbeiter erstellen
+  .panel-body
+  %table.table
+    %thead
+      %tr
+        %th= sort_link(@q, :id, 'ID', default_order: :asc)
+        %th= sort_link(@q, :firstname, 'Vorname')
+        %th= sort_link(@q, :name, 'Nachname')
+        %th= sort_link(@q, :phone, 'Telefonnummer')
+        %th= sort_link(@q, :email, 'E-Mail')
+        %th= sort_link(@q, :location, 'Standort')
+        %th= "Funktion"
+        %th
+    %tbody#employees
+      = render @employees
 #pagination.pagination-center
-	= paginate @employees, :theme => 'twitter-bootstrap-3', :remote => true
-	/ #counter.pagination-info
-	/ 	= page_entries_info @employees, :remote => true
+  = paginate @employees, :theme => 'twitter-bootstrap-3', :remote => true
+  / #counter.pagination-info
+  /   = page_entries_info @employees, :remote => true

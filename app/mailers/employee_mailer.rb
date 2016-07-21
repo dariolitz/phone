@@ -1,6 +1,6 @@
 class EmployeeMailer < ApplicationMailer
   def welcome_email(employee)
   	@employee = employee
-    mail(to: "d.litz@lifecodexx.com", subject: 'Welcome to My Awesome Site', message: "Your name: #{employee.name}")
+    mail(to: @employee.email, subject: 'Welcome to My Awesome Site', message: "Your name: #{@employee.firstname} #{@employee.name}")
   end
 end
