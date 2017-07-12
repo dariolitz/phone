@@ -205,7 +205,8 @@ GEM
       polyamorous (~> 1.3)
     rb-readline (0.5.4)
     rdoc (4.3.0)
-    ruby-graphviz (1.2.3)
+    record_tag_helper (1.0.0)
+      actionview (~> 5.x)
     ruby-ole (1.2.12.1)
     rubyXL (3.3.26)
       nokogiri (>= 1.4.4)
@@ -291,7 +292,7 @@ DEPENDENCIES
   rails (= 5.1.2)
   ransack
   rb-readline
-  ruby-graphviz
+  record_tag_helper (~> 1.0)
   rubyXL
   sass-rails
   sdoc
@@ -303,4 +304,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.15.1

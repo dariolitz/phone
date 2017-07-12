@@ -37,10 +37,10 @@ gem 'foundation-rails'
 gem 'rubyXL'
 gem 'spreadsheet'
 gem 'jquery-turbolinks'
-gem 'ruby-graphviz'
 gem 'phony_rails'
 gem 'phony'
 gem 'carrierwave'
+gem 'record_tag_helper', '~> 1.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
