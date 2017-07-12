@@ -40,6 +40,7 @@ gem 'jquery-turbolinks'
 gem 'ruby-graphviz'
 gem 'phony_rails'
 gem 'phony'
+gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
