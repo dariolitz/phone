@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :documents
 	get 'memberships' => 'memberships#index'
 
 	delete 'memberships/:id' => 'memberships#destroy', as: "delete_membership"

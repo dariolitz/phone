@@ -41,6 +41,7 @@ gem 'phony_rails'
 gem 'phony'
 gem 'carrierwave'
 gem 'record_tag_helper', '~> 1.0'
+gem 'awesome_print'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

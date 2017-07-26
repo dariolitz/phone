@@ -9,15 +9,22 @@ department = Department.create(name: "IT")
 department2 = Department.create(name: "Vertrieb")
 employee = Employee.create(firstname: "Hans", name: "Peter", phone: "0123125215", email: "hans.peter@email.com", location: "Germany")
 employee2 = Employee.create(firstname: "Christoph", name: "Werner", phone: "012321214", email: "christoph.werner@email.com", location: "Austria")
-membership = Membership.create(employee_id: employee.id, department_id: department.id, role: "Head")
-membership2 = Membership.create(employee_id: employee2.id, department_id: department2.id, role: "Apprentice")
-membership3 = Membership.create(employee_id: employee.id, department_id: department2.id, role: "Head")
-membership4 = Membership.create(employee_id: 7, department_id: 2, role: "Head")
-Employee.populate(300) do |employee|
-	first_name = Faker::Name.first_name
-	employee.firstname = first_name
-	employee.name = Faker::Name.last_name
-	employee.phone = Faker::PhoneNumber.phone_number
-	employee.email = Faker::Internet.email(first_name)
-	employee.location = Faker::Address.country
+Membership.create(employee_id: employee.id, department_id: department.id, role: "Head")
+Membership.create(employee_id: employee2.id, department_id: department2.id, role: "Apprentice")
+Membership.create(employee_id: employee.id, department_id: department2.id, role: "Head")
+Membership.create(employee_id: 7, department_id: 2, role: "Head")
+300.times do
+  employee = Employee.new
+  first_name = Faker::Name.first_name
+  employee.firstname = first_name
+  last_name = Faker::Name.name
+  employee.name = last_name
+  employee.phone = Faker::PhoneNumber.phone_number
+  employee.email = Faker::Internet.email([first_name, last_name].join("_"))
+  employee.location = Faker::Address.country
+  employee.save!
+end
+
+Employee.all.each do |employee|
+  Membership.create(employee_id: employee.id, department_id: Random.new(Department.count), role: Faker::Company.profession) if employee.memberships.length <= 3
 end

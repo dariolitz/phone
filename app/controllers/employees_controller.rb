@@ -3,6 +3,7 @@ class EmployeesController < ApplicationController
 	def index
 		@q = Employee.search(params[:q])
 		@employees = @q.result(distinct: true).page(params[:page]).per(15)
+		puts @employees
 	end
 
 	def new
@@ -27,7 +28,7 @@ class EmployeesController < ApplicationController
 	def edit
 		@employee = Employee.find(params[:id])
 	end
-	
+
 	def show
 		@employee = Employee.find(params[:id])
 	end
@@ -51,5 +52,5 @@ class EmployeesController < ApplicationController
       format.js   { render :layout => false }
 		end
 	end
-	
+
 end
