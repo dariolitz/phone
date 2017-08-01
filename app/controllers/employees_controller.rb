@@ -3,7 +3,6 @@ class EmployeesController < ApplicationController
 	def index
 		@q = Employee.search(params[:q])
 		@employees = @q.result(distinct: true).page(params[:page]).per(15)
-		puts @employees
 	end
 
 	def new
